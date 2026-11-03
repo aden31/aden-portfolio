@@ -1,0 +1,85 @@
+@import 'tailwindcss';
+
+/* The single source for theme values. */
+@theme {
+  --color-ink: #0a0a0b;
+  --color-charcoal: #121315;
+  --color-surface: #1a1b1f;
+  --color-paper: #f4f4f2;
+  --color-muted: #a1a1aa;
+  --color-lime: #c6f36a;
+  --color-line: rgb(244 244 242 / 0.14);
+  --color-line-strong: rgb(244 244 242 / 0.28);
+
+  --font-display: 'Big Shoulders Display Variable', 'Arial Narrow', Impact, sans-serif;
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --ease-cut: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  :root {
+    /* Page gutter. The trace runs inside it, so content never crosses the line. */
+    --gutter: clamp(1.25rem, 4.5vw, 4.5rem);
+    color-scheme: dark;
+  }
+
+  html {
+    background: var(--color-ink);
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-lime);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: var(--color-lime);
+    color: var(--color-ink);
+  }
+}
+
+@layer components {
+  .page-x {
+    padding-inline: var(--gutter);
+  }
+
+  .display {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 0.92;
+    letter-spacing: -0.005em;
+    text-transform: uppercase;
+  }
+
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--color-muted);
+  }
+
+  .hero-title {
+    font-size: clamp(4.1rem, 20.5vw, 7.5rem);
+  }
+
+  @media (min-width: 900px) {
+    .hero-title {
+      font-size: min(10.6vw, 13rem);
+    }
+  }
+}
