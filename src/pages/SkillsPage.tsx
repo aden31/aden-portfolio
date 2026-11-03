@@ -1,3 +1,4 @@
+import { Reveal } from '@/components/motion/Reveal'
 import { ContentGate } from '@/components/ContentGate'
 import { PageIntro } from '@/components/PageIntro'
 import { VerificationTag } from '@/components/Tag'
@@ -10,7 +11,7 @@ function Skills({ content }: { content: SiteContent }) {
       <PageIntro title="Skills">Labelled by how I’ve used each one, because a percentage wouldn’t tell you anything.</PageIntro>
       <div className="page-x py-10 lg:py-14">
         {content.skillGroups.map((group) => (
-          <section key={group.name} className="grid gap-4 border-t border-line py-8 lg:grid-cols-12 lg:gap-8">
+          <Reveal as="section" key={group.name} className="grid gap-4 border-t border-line py-8 lg:grid-cols-12 lg:gap-8">
             <h2 className="display text-[clamp(1.875rem,2.8vw,2.5rem)] lg:col-span-4">{group.name}</h2>
             <ul className="lg:col-span-8">
               {group.skills.map((skill) => (
@@ -23,7 +24,7 @@ function Skills({ content }: { content: SiteContent }) {
                 </li>
               ))}
             </ul>
-          </section>
+          </Reveal>
         ))}
       </div>
     </>

@@ -3,7 +3,7 @@ import { sendContactMessage } from '@/services/contact'
 import { validateContact, type ContactErrors, type ContactInput } from '../../../supabase/functions/contact/validate'
 
 const EMPTY: ContactInput = { name: '', email: '', subject: '', message: '' }
-const fieldStyle = 'w-full border border-line-strong bg-ink px-3 py-3 text-paper aria-[invalid=true]:border-lime'
+const fieldStyle = 'w-full border border-line-strong bg-ink px-3 py-3 text-paper aria-[invalid=true]:border-accent'
 
 function Field({ id, label, error, required, children }: {
   id: string
@@ -16,7 +16,7 @@ function Field({ id, label, error, required, children }: {
     <div>
       <label htmlFor={id} className="mb-1.5 block font-medium">{label}{!required && <span className="text-muted"> (optional)</span>}</label>
       {children}
-      {error && <p id={`${id}-error`} className="mt-1.5 text-sm text-lime">{error}</p>}
+      {error && <p id={`${id}-error`} className="mt-1.5 text-sm text-accent">{error}</p>}
     </div>
   )
 }
@@ -58,7 +58,7 @@ export function ContactForm() {
 
   if (state === 'sent') {
     return (
-      <div role="status" className="border border-lime p-6">
+      <div role="status" className="border border-accent p-6">
         <p className="font-medium">Message sent.</p>
         <p className="mt-1 text-muted">I’ll reply to your email.</p>
         <button type="button" onClick={() => setState('idle')} className="mt-3 min-h-11 underline underline-offset-4">Send another message</button>
@@ -75,8 +75,8 @@ export function ContactForm() {
       <div aria-hidden="true" className="absolute -left-[9999px]">
         <label>Website<input tabIndex={-1} autoComplete="off" value={website} onChange={(event) => setWebsite(event.target.value)} /></label>
       </div>
-      {failure && <p role="alert" className="border border-lime p-3">{failure}</p>}
-      <button type="submit" disabled={state === 'sending'} className="min-h-12 bg-lime px-6 py-3 font-medium text-ink transition-colors hover:bg-paper disabled:opacity-60">
+      {failure && <p role="alert" className="border border-accent p-3">{failure}</p>}
+      <button type="submit" disabled={state === 'sending'} className="min-h-12 bg-accent px-6 py-3 font-medium text-ink transition-colors hover:bg-paper disabled:opacity-60">
         {state === 'sending' ? 'Sending' : 'Send message'}
       </button>
     </form>

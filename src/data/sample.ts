@@ -6,6 +6,14 @@ import certIssGold from './assets/certificates/iss-gold-medal.webp'
 import certMindset from './assets/certificates/mindset.webp'
 import certNetwork from './assets/certificates/network.webp'
 import certOperator from './assets/certificates/operator.webp'
+import coverArli from './assets/projects/arli.webp'
+import coverJasuda from './assets/projects/jasuda.webp'
+import coverKpm from './assets/projects/kpm.webp'
+import coverPosko from './assets/projects/posko-jasuda.webp'
+import coverSimanis from './assets/projects/simanis.webp'
+import coverTiec from './assets/projects/tiec-website.webp'
+import coverLms from './assets/projects/tiec-lms.webp'
+import coverYapensa from './assets/projects/yapensa.webp'
 import portrait from './assets/portrait.webp'
 import type { Project, SiteContent } from '@/types/content'
 
@@ -92,12 +100,15 @@ export const sampleContent: SiteContent = {
       ...blankProject,
       slug: "simanis",
       title: "SIMANIS",
-      summary: "A web-based letter service system for prospective interns.",
+      summary: "A web-based service for requesting research and internship permit letters at Kanwil Kementerian Hukum Sulawesi Selatan, with letter tracking.",
       context: "Built during my internship in the Public Relations Division, Kementerian Hukum Sulawesi Selatan.",
       role: "Developed the system during the internship.",
+      keyFeatures: ["Online requests for research and internship letters", "Letter tracking to follow each request", "Accessible from anywhere"],
       technologies: ["CodeIgniter"],
       category: "Information Systems",
       year: 2025,
+      cover: { url: coverSimanis, alt: "SIMANIS service poster from Kanwil Kemenkum Sulawesi Selatan" },
+      demoUrl: "http://simanis.kemenkumsulsel.id/",
       isFeatured: true,
     },
     {
@@ -121,6 +132,7 @@ export const sampleContent: SiteContent = {
       technologies: ["PHP"],
       category: "Web Applications",
       year: 2025,
+      cover: { url: coverTiec, alt: "Homepage of the TIEC-ID Takalar website" },
       demoUrl: "https://tiec-id.com",
       isFeatured: false,
     },
@@ -133,6 +145,7 @@ export const sampleContent: SiteContent = {
       technologies: ["Moodle"],
       category: "Learning Platforms",
       year: 2025,
+      cover: { url: coverLms, alt: "Login page of the TIEC-ID Takalar LMS" },
       demoUrl: "https://lms.tiec-id.com",
       isFeatured: false,
     },
@@ -140,11 +153,25 @@ export const sampleContent: SiteContent = {
       ...blankProject,
       slug: "jasuda",
       title: "JASUDA",
-      summary: "A CMS and company website for CV Posko JaSuDa, a seaweed trading company, for managing content, data, products, and services.",
+      summary: "A CMS and company website for JaSuDa, covering its seaweed business, products, partners, media, and price information.",
       role: "Designed and developed the CMS and website.",
-      technologies: ["Node.js"],
+      technologies: [],
       category: "Web Applications",
       year: 2026,
+      cover: { url: coverJasuda, alt: "Homepage of the JaSuDa website" },
+      demoUrl: "https://baru.jasuda.net",
+      isFeatured: false,
+    },
+    {
+      ...blankProject,
+      slug: "posko-jasuda",
+      title: "Posko JaSuDa",
+      summary: "The website of CV Posko JaSuDa, a seaweed trading company, with its profile, documents, and team.",
+      role: "Built the website.",
+      technologies: ["Node.js"],
+      category: "Web Applications",
+      year: null,
+      cover: { url: coverPosko, alt: "Homepage of the Posko JaSuDa website" },
       demoUrl: "https://gudang.jasuda.net",
       isFeatured: false,
     },
@@ -157,6 +184,7 @@ export const sampleContent: SiteContent = {
       technologies: ["Node.js"],
       category: "Web Applications",
       year: null,
+      cover: { url: coverArli, alt: "Homepage of the Asosiasi Rumput Laut Indonesia website" },
       demoUrl: "https://arli.or.id",
       isFeatured: false,
     },
@@ -169,6 +197,7 @@ export const sampleContent: SiteContent = {
       technologies: ["PHP"],
       category: "Web Applications",
       year: 2026,
+      cover: { url: coverKpm, alt: "Homepage of the KPM FST UIN Alauddin Makassar website" },
       demoUrl: "https://kpm.uin-alauddin.com",
       isFeatured: false,
     },
@@ -181,6 +210,7 @@ export const sampleContent: SiteContent = {
       technologies: ["PHP"],
       category: "Web Applications",
       year: null,
+      cover: { url: coverYapensa, alt: "Homepage of the Yapensa website" },
       demoUrl: "https://yapensa.or.id",
       isFeatured: false,
     },
@@ -221,7 +251,7 @@ export const sampleContent: SiteContent = {
     { id: 'mindset', title: 'Pengantar Mindset Digital 1', issuer: 'Pusat Pengembangan Literasi Digital, Komdigi', program: 'Micro Skill, Digital Talent Scholarship 2025', period: '2025', hours: 2, credentialId: '2299815850-7300/MS/BLSDM.Komdigi/2025', credentialUrl: null, image: { url: certMindset, alt: 'Pengantar Mindset Digital 1 training certificate' } },
   ],
   experiences: [
-    { id: 'ta', kind: 'academic', organization: 'Universitas Islam Negeri Alauddin Makassar', position: 'Teaching assistant, Basis Data', description: 'Assisted lectures and practical sessions for the Database course.', contributions: ['Guided students in designing and managing databases.', 'Helped students finish assignments and projects, and supported learning evaluation.'], period: 'Sep 2025 – Dec 2025' },
+    { id: 'ta', kind: 'academic', organization: 'Universitas Islam Negeri Alauddin Makassar', position: 'Teaching assistant, Basis Data', description: 'Assisted lectures and practical sessions for the Database course.', contributions: ['Guided students in designing and managing databases.', 'Helped students finish assignments and projects, and supported learning evaluation.'], period: 'Aug 2025 – Dec 2025' },
     { id: 'intern', kind: 'professional', organization: 'Kementerian Hukum Sulawesi Selatan', position: 'Intern, Divisi Humas', description: 'Built two web-based systems during my internship in the Public Relations Division.', contributions: ['Developed SIMANIS, a letter service system for prospective interns, with CodeIgniter.', 'Developed a public satisfaction survey system with Laravel to support evaluation of service quality.'], period: 'Feb 2025 – Mar 2025' },
     { id: 'inready', kind: 'organizational', organization: 'Inready Workgroup', position: 'Divisi Humas', description: 'A student workgroup at UIN Alauddin Makassar focused on software development and digital technology.', contributions: ['Managed communication and publications on Instagram, and acted as the link to external parties.', 'Coordinated organization events, including exhibitions, seminars, inaugurations, and outdoor activities.'], period: 'Apr 2024 – Jul 2026' },
   ],
@@ -231,7 +261,7 @@ export const sampleContent: SiteContent = {
   skillGroups: [
     { name: 'Programming languages', skills: [{ name: 'PHP', usage: 'Web systems and CMS platforms.', evidence: 'applied' }, { name: 'JavaScript', usage: 'Interactive web interfaces.', evidence: 'applied' }, { name: 'Dart', usage: 'Mobile app built with Flutter.', evidence: 'project' }] },
     { name: 'Frontend development', skills: [{ name: 'HTML', usage: 'Website structure.', evidence: 'applied' }, { name: 'CSS', usage: 'Website layout and styling.', evidence: 'applied' }, { name: 'Flutter', usage: 'Autovizu, an AI product design app.', evidence: 'project' }, { name: 'React', usage: '', evidence: 'project', needsVerification: true }, { name: 'Bootstrap', usage: '', evidence: 'project', needsVerification: true }, { name: 'Chart.js', usage: '', evidence: 'project', needsVerification: true }] },
-    { name: 'Backend development', skills: [{ name: 'REST API', usage: 'Connecting systems and services.', evidence: 'applied' }, { name: 'Laravel', usage: 'Public satisfaction survey system.', evidence: 'applied' }, { name: 'CodeIgniter', usage: 'SIMANIS letter service system.', evidence: 'applied' }, { name: 'Node.js', usage: 'JASUDA and ARLI websites.', evidence: 'applied' }] },
+    { name: 'Backend development', skills: [{ name: 'REST API', usage: 'Connecting systems and services.', evidence: 'applied' }, { name: 'Laravel', usage: 'Public satisfaction survey system.', evidence: 'applied' }, { name: 'CodeIgniter', usage: 'SIMANIS letter service system.', evidence: 'applied' }, { name: 'Node.js', usage: 'Posko JaSuDa and ARLI websites.', evidence: 'applied' }] },
     { name: 'Database', skills: [{ name: 'MySQL', usage: 'Data storage for web systems.', evidence: 'applied' }, { name: 'Database management', usage: 'Taught database design and management as a teaching assistant.', evidence: 'applied' }] },
     { name: 'AI and automation', skills: [{ name: 'AI automation', usage: 'Workflow design in my thesis and AI app.', evidence: 'project' }, { name: 'n8n', usage: 'Workflow automation in my thesis and AI app.', evidence: 'project' }, { name: 'GPT', usage: 'AI model in my thesis and AI app.', evidence: 'project' }, { name: 'Moodle', usage: 'TIEC-ID LMS and my thesis.', evidence: 'applied' }] },
     { name: 'Tools and workflow', skills: [{ name: 'Git', usage: 'Version control.', evidence: 'project' }, { name: 'Figma', usage: 'App prototype for competition.', evidence: 'project' }] },

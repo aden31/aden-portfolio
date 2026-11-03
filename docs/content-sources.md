@@ -16,7 +16,7 @@ Catatan asal setiap fakta di situs. Bila dokumen berbeda, sertifikat asli yang d
 | Konten | Sumber |
 | --- | --- |
 | Nama, IPK 3,72/4,00, Cumlaude, Teknik Informatika 2022–2026 | B, R |
-| Asisten Dosen Basis Data, Sep–Des 2025 | R |
+| Asisten Dosen Basis Data, Agu–Des 2025 | P. Resume menulis Sep, perbaiki resume |
 | Magang Divisi Humas Feb–Mar 2025, dua aplikasi | P, R. Tidak ada sertifikat |
 | Inready Workgroup, Divisi Humas, Apr 2024–Jul 2026 | R |
 | Gold Medal dan 3rd Winner, International Student Summit, 18–19 Okt 2025 | S |
@@ -52,13 +52,19 @@ Catatan asal setiap fakta di situs. Bila dokumen berbeda, sertifikat asli yang d
 - Berkas CV. Tombol Download CV muncul setelah CV diunggah ke CMS. Sebelum itu, hapus alamat dan telepon, lalu perbaiki tahun medali perak dan URL LinkedIn di resume.
 - GitHub. Akunnya masih kosong, jadi disimpan sebagai draft di `social_links`. Ubah ke published setelah ada repository.
 
+## Screenshot proyek
+
+Ada di `src/data/assets/projects`, dari pemilik. Bilah browser dipotong. Kolom username dan password pada `tiec-lms.webp` dikosongkan. `simanis.webp` hanya berisi poster resmi dari Instagram Kanwil, tanpa komentar.
+
+Deskripsi `baru.jasuda.net` dan SIMANIS ditulis dari screenshot dan poster, karena situsnya tidak bisa dibuka dari lingkungan kerja ini. Stack `baru.jasuda.net` belum diketahui.
+
 ## Berkas untuk diunggah ke CMS
 
 Ada di `src/data/assets`. Setelah CMS jadi, unggah dan hubungkan:
 
 | Berkas | Tujuan |
 | --- | --- |
-| `portrait.webp` | Foto profil. Hasil olahan: latar merah diganti, hitam-putih, wajah tidak diretus |
+| `portrait.webp` | Foto profil. Hasil olahan: latar merah diganti biru, wajah tidak diretus |
 | `certificates/iss-gold-medal.webp` | Bukti Gold Medal |
 | `certificates/iss-3rd-winner.webp` | Bukti 3rd Winner |
 | `certificates/iflc-silver-medal.webp` | Bukti Silver Medal |

@@ -14,12 +14,12 @@ function Contact({ content }: { content: SiteContent }) {
         <section aria-labelledby="direct" className="lg:col-span-5">
           <h2 id="direct" className="display text-[clamp(1.75rem,2.6vw,2.5rem)] text-muted">Reach me directly</h2>
           {profile.contactEmail && (
-            <a href={`mailto:${profile.contactEmail}`} className="mt-5 block break-all font-mono text-lg underline decoration-lime decoration-2 underline-offset-4 hover:text-lime">{profile.contactEmail}</a>
+            <a href={`mailto:${profile.contactEmail}`} className="mt-5 block break-all font-mono text-lg underline decoration-accent decoration-2 underline-offset-4 hover:text-accent">{profile.contactEmail}</a>
           )}
           <ul className="mt-4 space-y-2">
             {socialLinks.map((link) => (
               <li key={link.platform}>
-                <a href={link.url} target="_blank" rel="noreferrer" className="inline-block min-h-11 py-2 underline underline-offset-4 hover:text-lime">{link.label}</a>
+                <a href={link.url} target="_blank" rel="noreferrer" className="inline-block min-h-11 py-2 underline underline-offset-4 hover:text-accent">{link.label}</a>
               </li>
             ))}
           </ul>

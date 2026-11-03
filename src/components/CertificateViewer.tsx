@@ -11,7 +11,7 @@ export function CertificateViewer({ image, label }: { image: MediaRef; label: st
         type="button"
         aria-label={`View certificate: ${label}`}
         onClick={() => dialogRef.current?.showModal()}
-        className="min-h-11 underline decoration-lime decoration-2 underline-offset-4 hover:text-lime"
+        className="min-h-11 underline decoration-accent decoration-2 underline-offset-4 hover:text-accent"
       >
         View certificate
       </button>

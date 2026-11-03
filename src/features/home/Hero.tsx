@@ -1,6 +1,8 @@
 import { Fragment, useState } from 'react'
 import { motion } from 'motion/react'
 import { ActionLink } from '@/components/ActionLink'
+import { HeroBackdrop } from '@/features/home/HeroBackdrop'
+import { IdCard } from '@/features/home/IdCard'
 import type { PipelineStage, Profile, SocialLink } from '@/types/content'
 
 const EASE = [0.16, 1, 0.3, 1] as const
@@ -27,22 +29,6 @@ function Headline({ text }: { text: string }) {
   )
 }
 
-function Portrait({ profile }: { profile: Profile }) {
-  if (profile.portrait) {
-    return (
-      <img
-        src={profile.portrait.url}
-        alt={profile.portrait.alt || `Portrait of ${profile.fullName}`}
-        className="aspect-[4/5] w-full object-cover object-top"
-        fetchPriority="high"
-      />
-    )
-  }
-  return (
-    <div aria-hidden="true" className="aspect-[4/5] w-full border border-line-strong bg-charcoal" />
-  )
-}
-
 function Pipeline({ stages }: { stages: PipelineStage[] }) {
   const [activeId, setActiveId] = useState(stages[0]?.id)
   const active = stages.find((stage) => stage.id === activeId) ?? stages[0]
@@ -65,7 +51,7 @@ function Pipeline({ stages }: { stages: PipelineStage[] }) {
                 <span
                   data-trace-stage
                   className={`relative z-10 size-3 rounded-full border transition-colors ${
-                    selected ? 'border-lime bg-lime' : 'border-line-strong bg-ink group-hover:border-paper'
+                    selected ? 'border-accent bg-accent' : 'border-line-strong bg-ink group-hover:border-paper'
                   }`}
                 />
                 <span className={`meta transition-colors ${selected ? 'text-paper' : ''}`}>
@@ -92,6 +78,7 @@ type Props = {
 export function Hero({ profile, socialLinks, stages, onExplore }: Props) {
   return (
     <section aria-labelledby="hero-title" className="page-x relative pb-14 pt-8 lg:pt-10">
+      <HeroBackdrop />
       <motion.p
         className="meta mb-5"
         initial={{ opacity: 0 }}
@@ -102,14 +89,7 @@ export function Hero({ profile, socialLinks, stages, onExplore }: Props) {
       </motion.p>
 
       <div className="flex flex-col min-[900px]:block">
-        <motion.div
-          className="order-3 mt-10 w-3/5 min-[900px]:float-right min-[900px]:mt-1 min-[900px]:ml-[3vw] min-[900px]:w-[min(22vw,25rem)]"
-          initial={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
-          animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
-          transition={{ duration: 0.9, delay: 0.35, ease: EASE }}
-        >
-          <Portrait profile={profile} />
-        </motion.div>
+        <IdCard profile={profile} />
 
         <h1 id="hero-title" className="display hero-title order-1">
           <Headline text={profile.headline} />

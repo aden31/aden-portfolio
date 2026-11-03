@@ -14,6 +14,7 @@ const NAV_ITEMS = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
+  const [hovered, setHovered] = useState<string | null>(null)
 
   useEffect(() => {
     if (!open) return
@@ -33,19 +34,20 @@ export function SiteHeader() {
           Aden Lutfil Irsyadi
         </Link>
         <nav aria-label="Main" className="hidden lg:block">
-          <ul className="flex gap-8">
+          <ul className="flex gap-2" onPointerLeave={() => setHovered(null)}>
             {NAV_ITEMS.map((item) => (
-              <li key={item.to}>
+              <li key={item.to} className="relative" onPointerEnter={(event) => event.pointerType === 'mouse' && setHovered(item.to)}>
+                {hovered === item.to && <motion.span layoutId="nav-hover" className="absolute inset-0 rounded-md bg-surface" transition={{ type: 'spring', stiffness: 400, damping: 32 }} />}
                 <NavLink
                   to={item.to}
                   className={({ isActive }) =>
-                    `relative py-2 text-[0.9375rem] transition-colors hover:text-paper ${isActive ? 'text-paper' : 'text-muted'}`
+                    `relative block px-3 py-2 text-[0.9375rem] transition-colors hover:text-paper ${isActive ? 'text-paper' : 'text-muted'}`
                   }
                 >
                   {({ isActive }) => (
                     <>
                       {item.label}
-                      {isActive && <motion.span layoutId="nav-indicator" className="absolute inset-x-0 -bottom-px h-0.5 bg-lime" />}
+                      {isActive && <motion.span layoutId="nav-indicator" className="absolute inset-x-0 -bottom-px h-0.5 bg-accent" />}
                     </>
                   )}
                 </NavLink>

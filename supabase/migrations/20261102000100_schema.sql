@@ -123,7 +123,7 @@ create table public.projects (
   project_status public.project_status,
   year smallint,
   context text not null default '',
-  demo_url text check (demo_url ~ '^https://'),
+  demo_url text check (demo_url ~ '^https?://'),
   repo_url text check (repo_url ~ '^https://'),
   is_featured boolean not null default false,
   sort_order integer not null default 0,

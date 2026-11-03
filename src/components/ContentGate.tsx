@@ -13,7 +13,7 @@ export function ContentGate({ children }: { children: (content: SiteContent) => 
       <div role="alert" className="page-x min-h-[80vh] py-20">
         <h1 className="display text-6xl">This page didn’t load</h1>
         <p className="mt-4 max-w-[52ch] text-muted">{state.message}</p>
-        <button type="button" onClick={retry} className="mt-6 min-h-12 bg-lime px-6 py-3 font-medium text-ink">Try again</button>
+        <button type="button" onClick={retry} className="mt-6 min-h-12 bg-accent px-6 py-3 font-medium text-ink">Try again</button>
       </div>
     )
   }

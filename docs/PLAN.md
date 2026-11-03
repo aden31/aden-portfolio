@@ -37,17 +37,19 @@ Warna (semua token ada di `src/styles/index.css`):
 
 | Token | Nilai | Peran |
 | --- | --- | --- |
-| `ink` | `#0A0A0B` | Latar utama |
-| `charcoal` | `#121315` | Latar sekunder |
-| `surface` | `#1A1B1F` | Permukaan |
-| `paper` | `#F4F4F2` | Teks utama |
-| `muted` | `#A1A1AA` | Teks sekunder |
-| `lime` | `#C6F36A` | Aksen: CTA utama, jalur, fokus |
-| `line`, `line-strong` | paper 14% dan 28% | Garis tipis |
+| `ink` | `#14305A` | Latar utama, biru gelap |
+| `charcoal` | `#1A3A6B` | Latar sekunder |
+| `surface` | `#234A82` | Permukaan |
+| `paper` | `#F3F7FD` | Teks utama, kartu ID |
+| `muted` | `#BCCBE0` | Teks sekunder |
+| `accent` | `#8FD3FF` | Aksen: CTA utama, jalur, fokus |
+| `line`, `line-strong` | paper 18% dan 34% | Garis tipis |
+
+Palet ini menggantikan palet hitam dan lime dari brief awal atas permintaan pemilik. Kontras teks utama 12,2:1, teks sekunder 8:1 di latar utama.
 
 Tipografi: Big Shoulders Display untuk headline, karena sempit sehingga tetap besar di ponsel. Geist untuk isi, Geist Mono untuk metadata. Font di-bundle lokal.
 
-Elemen khas: **jalur sirkuit**. Satu garis lime mulai dari pipeline Need sampai Automation di hero, berkelok melintasi halaman sebagai pembatas antarbagian, dan berakhir di tombol kontak. Garis tergambar mengikuti scroll, dan berada di gutter sehingga tidak menabrak teks. Ini memvisualisasikan posisi Aden: menghubungkan kebutuhan nyata dengan solusi.
+Elemen khas: **kartu ID** yang tergantung di tali dan bisa ditarik, serta **jalur sirkuit**. Satu garis aksen mulai dari pipeline Need sampai Automation di hero, berkelok melintasi halaman sebagai pembatas antarbagian, dan berakhir di tombol kontak. Garis tergambar mengikuti scroll, dan berada di gutter sehingga tidak menabrak teks. Ini memvisualisasikan posisi Aden: menghubungkan kebutuhan nyata dengan solusi.
 
 Aturan: aksen dipakai hemat, tidak ada gradient neon, tidak ada persentase keahlian. Animasi otomatis hanya pada pemuatan hero dan jalur scroll. Semua hormat pada `prefers-reduced-motion`.
 

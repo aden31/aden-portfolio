@@ -14,7 +14,7 @@ export class ErrorBoundary extends Component<{ children: ReactNode }, { failed: 
       <div role="alert" className="page-x min-h-screen py-20">
         <h1 className="display text-6xl">Something broke on this page</h1>
         <p className="mt-4 max-w-[52ch] text-muted">Reload to try again. If it keeps happening, the rest of the site may still work.</p>
-        <button type="button" onClick={() => window.location.assign('/')} className="mt-6 min-h-12 bg-lime px-6 py-3 font-medium text-ink">Go to home</button>
+        <button type="button" onClick={() => window.location.assign('/')} className="mt-6 min-h-12 bg-accent px-6 py-3 font-medium text-ink">Go to home</button>
       </div>
     )
   }

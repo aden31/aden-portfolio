@@ -1,9 +1,0 @@
-node_modules
-dist
-dist-preview
-*.tsbuildinfo
-.env
-.env.*
-!.env.example
-test-results
-playwright-report

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { CertificateViewer } from '@/components/CertificateViewer'
+import { CountUp, Reveal } from '@/components/motion/Reveal'
 import { ContentGate } from '@/components/ContentGate'
 import { PageIntro } from '@/components/PageIntro'
 import { uniqueValues } from '@/features/projects/filter'
@@ -16,8 +17,8 @@ const CATEGORY_LABEL: Record<AchievementCategory, string> = {
 
 function AchievementItem({ item }: { item: Achievement }) {
   return (
-    <li className="grid gap-4 border-t border-line py-8 lg:grid-cols-12 lg:gap-8">
-      <p className="display text-[clamp(3.5rem,6vw,6rem)] lg:col-span-3">{item.value}</p>
+    <Reveal as="li" className="grid gap-4 border-t border-line py-8 lg:grid-cols-12 lg:gap-8">
+      <p className="display text-[clamp(3.5rem,6vw,6rem)] lg:col-span-3">{item.value && <CountUp value={item.value} />}</p>
       <div className="lg:col-span-8">
         <h3 className="text-xl font-medium">{item.title}</h3>
         {item.organizer && <p className="mt-1 max-w-[62ch] text-muted">{item.organizer}</p>}
@@ -29,13 +30,13 @@ function AchievementItem({ item }: { item: Achievement }) {
           {item.sourceUrl && <a href={item.sourceUrl} target="_blank" rel="noreferrer" className="text-muted underline underline-offset-4 hover:text-paper">Source</a>}
         </div>
       </div>
-    </li>
+    </Reveal>
   )
 }
 
 function CertificateItem({ item }: { item: Certificate }) {
   return (
-    <li className="grid gap-2 border-t border-line py-6 md:grid-cols-12 md:gap-8">
+    <Reveal as="li" className="grid gap-2 border-t border-line py-6 md:grid-cols-12 md:gap-8">
       <div className="md:col-span-7">
         <h3 className="text-lg font-medium">{item.title}</h3>
         <p className="text-muted">{item.issuer}</p>
@@ -46,7 +47,7 @@ function CertificateItem({ item }: { item: Certificate }) {
         {item.credentialId && <p className="meta mt-1 break-all">No. {item.credentialId}</p>}
         {item.image && <div className="mt-1"><CertificateViewer image={item.image} label={item.title} /></div>}
       </div>
-    </li>
+    </Reveal>
   )
 }
 
@@ -68,7 +69,7 @@ function Achievements({ content }: { content: SiteContent }) {
                 type="button"
                 aria-pressed={active === value}
                 onClick={() => setActive(value)}
-                className={`min-h-11 border px-4 transition-colors ${active === value ? 'border-lime bg-lime text-ink' : 'border-line-strong hover:border-paper'}`}
+                className={`min-h-11 border px-4 transition-colors ${active === value ? 'border-accent bg-accent text-ink' : 'border-line-strong hover:border-paper'}`}
               >
                 {value === 'all' ? 'All' : CATEGORY_LABEL[value]}
               </button>

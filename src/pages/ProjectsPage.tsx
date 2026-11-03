@@ -1,5 +1,6 @@
 import { Link, useSearchParams } from 'react-router-dom'
 import { ContentGate } from '@/components/ContentGate'
+import { Reveal } from '@/components/motion/Reveal'
 import { PageIntro } from '@/components/PageIntro'
 import { filterProjects, uniqueValues, type SortKey } from '@/features/projects/filter'
 import { ProjectMeta, STATUS_LABEL } from '@/features/projects/shared'
@@ -72,23 +73,30 @@ function Projects({ projects }: { projects: Project[] }) {
         {results.length === 0 ? (
           <div className="py-16">
             <p className="text-lg">No projects match these filters.</p>
-            <button type="button" onClick={() => setParams({}, { replace: true })} className="mt-3 min-h-11 underline decoration-lime decoration-2 underline-offset-4">Clear filters</button>
+            <button type="button" onClick={() => setParams({}, { replace: true })} className="mt-3 min-h-11 underline decoration-accent decoration-2 underline-offset-4">Clear filters</button>
           </div>
         ) : (
           <ul className="mt-4">
             {results.map((project) => (
-              <li key={project.slug} className="border-t border-line">
-                <Link to={`/projects/${project.slug}`} className="group grid gap-3 py-8 lg:grid-cols-12 lg:gap-8">
-                  <div className="lg:col-span-7">
+              <Reveal as="li" key={project.slug} className="border-t border-line">
+                <Link to={`/projects/${project.slug}`} className="group grid gap-4 py-8 lg:grid-cols-12 lg:gap-8">
+                  <div className="lg:col-span-6">
                     <ProjectMeta project={project} />
-                    <h2 className="display mt-3 text-[clamp(2.5rem,4.8vw,4.75rem)] transition-colors group-hover:text-lime">{project.title}</h2>
+                    <h2 className="display mt-3 text-[clamp(2.5rem,4.8vw,4.75rem)] transition duration-300 ease-cut group-hover:translate-x-2 group-hover:text-accent">{project.title}</h2>
                   </div>
-                  <div className="lg:col-span-4 lg:col-start-9 lg:pt-8">
+                  <div className="lg:col-span-3 lg:pt-8">
                     <p className="text-muted">{project.summary}</p>
                     {project.technologies.length > 0 && <p className="meta mt-3">{project.technologies.join(', ')}</p>}
                   </div>
+                  <div className="lg:col-span-3 lg:pt-8">
+                    {project.cover && (
+                      <span className="block aspect-video overflow-hidden rounded-lg border border-line">
+                        <img src={project.cover.url} alt="" loading="lazy" className="size-full object-cover object-top transition-transform duration-700 ease-cut group-hover:scale-110" />
+                      </span>
+                    )}
+                  </div>
                 </Link>
-              </li>
+              </Reveal>
             ))}
           </ul>
         )}

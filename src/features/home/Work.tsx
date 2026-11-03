@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
+import { Reveal, RevealText } from '@/components/motion/Reveal'
 import { ExternalLinks, FlowDiagram, ProjectMeta } from '@/features/projects/shared'
 import type { Project } from '@/types/content'
 
 function ProjectLinks({ project }: { project: Project }) {
   return (
     <div className="flex flex-wrap gap-x-6 gap-y-2">
-      <Link to={`/projects/${project.slug}`} className="underline decoration-lime decoration-2 underline-offset-4 hover:text-lime">
+      <Link to={`/projects/${project.slug}`} className="underline decoration-accent decoration-2 underline-offset-4 hover:text-accent">
         View project
         <span className="sr-only">: {project.title}</span>
       </Link>
@@ -25,7 +26,7 @@ function LeadProject({ project }: { project: Project }) {
     <article className="grid gap-10 lg:grid-cols-12">
       <div className="lg:col-span-7">
         <ProjectMeta project={project} />
-        <h3 className="display mt-4 text-[clamp(2.75rem,6vw,6rem)]">{project.title}</h3>
+        <RevealText as="h3" text={project.title} className="display mt-4 text-[clamp(2.75rem,6vw,6rem)]" />
         <p className="mt-6 max-w-[58ch] text-lg">{project.summary}</p>
         <dl className="mt-8 space-y-5">
           {details.map((item) => (
@@ -40,27 +41,27 @@ function LeadProject({ project }: { project: Project }) {
         )}
         <div className="mt-6"><ProjectLinks project={project} /></div>
       </div>
-      <div className="lg:col-span-4 lg:col-start-9">
+      <Reveal delay={0.15} className="lg:col-span-4 lg:col-start-9">
         {project.cover ? (
           <img src={project.cover.url} alt={project.cover.alt} loading="lazy" className="h-full w-full object-cover" />
         ) : project.flowSteps.length > 0 ? (
           <FlowDiagram steps={project.flowSteps} />
         ) : null}
-      </div>
+      </Reveal>
     </article>
   )
 }
 
 function SupportingProject({ project, offset }: { project: Project; offset: boolean }) {
   return (
-    <article className={`border-t border-line-strong pt-5 ${offset ? 'lg:col-span-4 lg:col-start-9 lg:mt-24' : 'lg:col-span-6'}`}>
+    <Reveal className={`border-t border-line-strong pt-5 ${offset ? 'lg:col-span-4 lg:col-start-9 lg:mt-24' : 'lg:col-span-6'}`}><article>
       <ProjectMeta project={project} />
       <h3 className="display mt-4 text-[clamp(2.5rem,4.6vw,4.75rem)]">{project.title}</h3>
       {project.cover && <img src={project.cover.url} alt={project.cover.alt} loading="lazy" className="mt-5 aspect-video w-full object-cover" />}
       <p className="mt-4 max-w-[48ch] text-muted">{project.summary}</p>
       {project.technologies.length > 0 && <p className="meta mt-4">{project.technologies.join(', ')}</p>}
       <div className="mt-5"><ProjectLinks project={project} /></div>
-    </article>
+    </article></Reveal>
   )
 }
 
@@ -71,8 +72,8 @@ export function Work({ projects }: { projects: Project[] }) {
   return (
     <section id="work" aria-labelledby="work-title" tabIndex={-1} className="page-x relative z-10 py-20 outline-none lg:py-28">
       <div className="mb-12 flex items-end justify-between gap-6">
-        <h2 id="work-title" className="display text-[clamp(1.75rem,2.6vw,2.5rem)] text-muted">Selected work</h2>
-        <Link to="/projects" className="shrink-0 underline underline-offset-4 hover:text-lime">All projects</Link>
+        <RevealText id="work-title" text="Selected work" className="display text-[clamp(1.75rem,2.6vw,2.5rem)] text-muted" />
+        <Link to="/projects" className="shrink-0 underline underline-offset-4 hover:text-accent">All projects</Link>
       </div>
       <LeadProject project={lead} />
       {supporting.length > 0 && (

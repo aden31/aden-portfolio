@@ -1,4 +1,5 @@
 import { ContentGate } from '@/components/ContentGate'
+import { Reveal, ScrollLine } from '@/components/motion/Reveal'
 import { PageIntro } from '@/components/PageIntro'
 import { usePageMeta } from '@/hooks/usePageMeta'
 import type { Experience, SiteContent } from '@/types/content'
@@ -11,18 +12,18 @@ const KIND_LABEL: Record<Experience['kind'], string> = {
 
 function Entry({ item }: { item: Experience }) {
   return (
-    <li className="relative border-l border-line-strong pb-14 pl-7 last:pb-2">
-      <span aria-hidden="true" className="absolute -left-[5px] top-2 size-[9px] bg-lime" />
+    <Reveal as="li" className="relative pb-14 pl-7 last:pb-2">
+      <span aria-hidden="true" className="absolute -left-[5px] top-2 size-[9px] bg-accent" />
       <p className="meta">{[item.period, KIND_LABEL[item.kind]].filter(Boolean).join(', ')}</p>
       <h3 className="display mt-2 text-[clamp(2.25rem,4.4vw,4rem)]">{item.position}</h3>
       <p className="mt-2 font-medium">{item.organization}</p>
       {item.description && <p className="mt-3 max-w-[62ch] text-muted">{item.description}</p>}
       {item.contributions.length > 0 && (
-        <ul className="mt-4 max-w-[62ch] list-outside list-disc space-y-2 pl-4 marker:text-lime">
+        <ul className="mt-4 max-w-[62ch] list-outside list-disc space-y-2 pl-4 marker:text-accent">
           {item.contributions.map((text) => <li key={text}>{text}</li>)}
         </ul>
       )}
-    </li>
+    </Reveal>
   )
 }
 
@@ -35,7 +36,7 @@ function ExperienceContent({ content }: { content: SiteContent }) {
         {experiences.length > 0 && (
           <section aria-labelledby="work-history" className="lg:col-span-8">
             <h2 id="work-history" className="display mb-8 text-[clamp(1.75rem,2.6vw,2.5rem)] text-muted">Work and roles</h2>
-            <ol>{experiences.map((item) => <Entry key={item.id} item={item} />)}</ol>
+            <ol className="relative"><ScrollLine />{experiences.map((item) => <Entry key={item.id} item={item} />)}</ol>
           </section>
         )}
         {education.length > 0 && (

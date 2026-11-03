@@ -5,7 +5,7 @@ import { useTracePath } from '@/hooks/useTracePath'
 const SAMPLE_STEP = 24
 const HEAD_POSITION = 0.82
 
-/** The lime line that runs down the page. It draws to follow scrolling; without motion it is simply complete. */
+/** The accent line that runs down the page. It draws to follow scrolling; without motion it is simply complete. */
 export function Trace({ hostRef }: { hostRef: RefObject<HTMLElement | null> }) {
   const { d, width, height } = useTracePath(hostRef)
   const pathRef = useRef<SVGPathElement>(null)
@@ -68,7 +68,7 @@ export function Trace({ hostRef }: { hostRef: RefObject<HTMLElement | null> }) {
       <motion.path
         ref={pathRef}
         d={d}
-        stroke="var(--color-lime)"
+        stroke="var(--color-accent)"
         strokeWidth="1.5"
         pathLength={1}
         strokeDasharray="1 1"

@@ -49,7 +49,7 @@ function About({ content }: { content: SiteContent }) {
             <ActionLink to="/experience" variant="secondary">Experience</ActionLink>
             <ActionLink to="/achievements" variant="secondary">Achievements</ActionLink>
           </div>
-          <p className="mt-6 text-muted">Want to talk? <Link to="/contact" className="text-paper underline underline-offset-4 hover:text-lime">Get in touch</Link>.</p>
+          <p className="mt-6 text-muted">Want to talk? <Link to="/contact" className="text-paper underline underline-offset-4 hover:text-accent">Get in touch</Link>.</p>
         </Row>
       </div>
     </>

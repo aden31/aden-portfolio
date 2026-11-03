@@ -6,7 +6,7 @@ const base =
   'inline-flex min-h-12 items-center justify-center gap-2 px-6 py-3 font-medium transition-colors duration-200'
 
 export const actionStyles = {
-  primary: `${base} bg-lime text-ink hover:bg-paper`,
+  primary: `${base} btn-sheen bg-accent text-ink hover:bg-paper`,
   secondary: `${base} border border-line-strong bg-ink text-paper hover:border-paper`,
 }
 
